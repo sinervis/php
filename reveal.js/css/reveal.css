@@ -337,10 +337,11 @@ body {
 
 .reveal .slides > section,
 .reveal .slides > section > section {
+  box-sizing: border-box;
   display: none;
   position: absolute;
   width: 100%;
-  padding: 20px 0px;
+  padding: 20px 20px;
   pointer-events: auto;
   z-index: 10;
   -webkit-transform-style: flat;

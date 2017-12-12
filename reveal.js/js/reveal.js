@@ -1756,16 +1756,18 @@
 			// Layout the contents of the slides
 			layoutSlideContents( config.width, config.height );
 
-			dom.slides.style.width = size.width + 'px';
-			dom.slides.style.height = size.height + 'px';
+			// console.log("Sono qui dentro?", size.height);
+			// dom.slides.style.width = size.width + 'px';
+			// dom.slides.style.height = size.height + 'px';
 
 			// Determine scale of content to fit within available space
-			scale = Math.min( size.presentationWidth / size.width, size.presentationHeight / size.height );
+			// scale = Math.min( size.presentationWidth / size.width, size.presentationHeight / size.height )-0.1;
 
 			// Respect max/min scale settings
-			scale = Math.max( scale, config.minScale );
-			scale = Math.min( scale, config.maxScale );
-
+			// scale = Math.max( scale, config.minScale );
+			// scale = Math.min( scale, config.maxScale );
+			scale = 1;
+			
 			// Don't apply any scaling styles if scale is 1
 			if( scale === 1 ) {
 				dom.slides.style.zoom = '';
