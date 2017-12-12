@@ -183,6 +183,8 @@ Si indica in questo modo una applicazione, un software che e' costituito da due 
 che collaborano tra loro per eseguire un certo compito richiesto dall'utente e che si trovano
 su piattaforme hardware diverse.
 
+![](architettura-client-server.jpg)
+
 ## Client
 Il client e' il programma che costituisce l'interfaccia con l'utente e che si occupa
 di richiedere i dati al server e di presentarli.
@@ -192,3 +194,8 @@ di richiedere i dati al server e di presentarli.
 Il server si occupa del mantenimento dei dati, del reperimento e dell'invio dei dati al client
 (nel nostro caso, php)
 
+![](nocloud.png)
+
+## Datacenter
+
+![](datacenter.jpg)
