@@ -90,7 +90,6 @@ Il significato originale dell'acronimo era "Personal Home Page", oggi sta per "P
 
 ## PHP
 
-- Introduzione
 - Sintassi Fondamentale 
 - Tipi
 - Variabili
@@ -102,39 +101,6 @@ Il significato originale dell'acronimo era "Personal Home Page", oggi sta per "P
 - Cookie
 - Sessione
 - File
-
-## Introduzione
-
-- [PHP](#php)
-    - [PHP](#php)
-        - [PHP Hypertext Preprocessor](#php-hypertext-preprocessor)
-    - [Client/Server](#clientserver)
-    - [PHP](#php)
-    - [Introduzione](#introduzione)
-    - [Sintassi](#sintassi)
-    - [Sintassi](#sintassi)
-    - [Commenti](#commenti)
-    - [Variabili](#variabili)
-    - [Tipi](#tipi)
-    - [Costanti](#costanti)
-    - [Stringhe](#stringhe)
-    - [Concatenazione](#concatenazione)
-    - [Operatori Aritmetici](#operatori-aritmetici)
-    - [Condizioni](#condizioni)
-        - [IF](#if)
-    - [Condizioni II](#condizioni-ii)
-        - [SWITCH](#switch)
-    - [Operatori di confronto](#operatori-di-confronto)
-    - [Operatori logici](#operatori-logici)
-    - [Cicli](#cicli)
-    - [while](#while)
-    - [do...while](#dowhile)
-    - [for](#for)
-    - [Array](#array)
-    - [Array associativi](#array-associativi)
-    - [Foreach](#foreach)
-    - [Form](#form)
-    - [Esercizio](#esercizio)
 
 ## Sintassi
 
