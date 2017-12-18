@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Rocco De Patto">
+  <title>PHP / Mysql   Sinervis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">PHP / Mysql <br> Sinervis</h1>
+  <h2 class="author">Rocco De Patto</h2>
+  <h3 class="date">Dicembre 19, 2017</h3>
+</section>
+
+<section><section id="php" class="titleslide slide level1"><h1>PHP</h1></section><section id="php-1" class="slide level2">
+<h1>PHP</h1>
+<style>
+    div.sourceCode {
+        font-size: 1.3em;
+    }
+
+    .reveal {
+        font-size: 27px;
+        color: #2d373a;
+    }
+
+    .reveal p {
+        text-align: left;
+    }
+
+    .reveal blockquote {
+        text-align: left;
+        padding-left: 45px;
+        font-size: 1.3em;
+        border-left: 5px solid;
+        background: #eee;
+    }
+
+    body {
+        background: white;
+    }
+
+    .container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container textarea {
+        width: 50%;
+    }
+
+    .container .output {
+        width: 50%;
+    }
+
+    .reveal pre.sourceCode {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid #bbb;
+        border-left: 5px solid #bbb;
+        background: #f5f5f5;
+        padding: 5px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+    li > code,
+    p  > code {
+        border-radius: 6px;
+        color: black;
+        background: #f4f4f4;
+        padding: 0px 4px !important;
+    }
+</style>
+<h3 id="php-hypertext-preprocessor">PHP Hypertext Preprocessor</h3>
+<p>Nasce nel '94 ad opera del danese Rasmus Lerdorf.</p>
+<p>Il significato originale dell'acronimo era &quot;Personal Home Page&quot;, oggi sta per &quot;PHP Hypertext Preprocessor&quot;.</p>
+<ul>
+<li>Interpretato</li>
+<li>Alto livello</li>
+<li>Aperto</li>
+<li>Poche alternative (ASP)</li>
+<li>Progettato per il web (ma non necessariamente relegato in quell'ambito)</li>
+</ul>
+</section><section id="clientserver" class="slide level2">
+<h1>Client/Server</h1>
+<ul>
+<li>Il computer dell'utente (<strong>client</strong>) si connette a Internet</li>
+<li>Apre un Web Browser (FF, Opera, Chrome, etc.)</li>
+<li>Il client richiede una pagina ad un sito web</li>
+<li>Il DNS (name server) indirizza il client verso l'indirizzo del server</li>
+<li>Il server che ospita la pagina web, riceve la richiesta e recupera al suo interno la pagina</li>
+<li>Se la pagina e' statica (html, txt, png) la manda al clinet</li>
+<li>Se la pagina dinamica (php) la interpreta e ne manda l'output al client</li>
+<li>Il client riceve la pagina richiesta e ne mostra una sua interpretazione sul monitor dell'utente</li>
+</ul>
+</section><section id="php-2" class="slide level2">
+<h1>PHP</h1>
+<ul>
+<li>Introduzione</li>
+<li>Sintassi Fondamentale</li>
+<li>Tipi</li>
+<li>Variabili</li>
+<li>Costanti</li>
+<li>Operatori</li>
+<li>Strutture di controllo</li>
+<li>Funzioni</li>
+<li>Form</li>
+<li>Cookie</li>
+<li>Sessione</li>
+<li>File</li>
+</ul>
+</section><section id="introduzione" class="slide level2">
+<h1>Introduzione</h1>
+<ul>
+<li><a href="#/php">PHP</a>
+<ul>
+<li><a href="#/php">PHP</a>
+<ul>
+<li><a href="#/php-hypertext-preprocessor">PHP Hypertext Preprocessor</a></li>
+</ul></li>
+<li><a href="#/clientserver">Client/Server</a></li>
+<li><a href="#/php">PHP</a></li>
+<li><a href="#/introduzione">Introduzione</a></li>
+<li><a href="#/sintassi">Sintassi</a></li>
+<li><a href="#/sintassi">Sintassi</a></li>
+<li><a href="#/commenti">Commenti</a></li>
+<li><a href="#/variabili">Variabili</a></li>
+<li><a href="#/tipi">Tipi</a></li>
+<li><a href="#/costanti">Costanti</a></li>
+<li><a href="#/stringhe">Stringhe</a></li>
+<li><a href="#/concatenazione">Concatenazione</a></li>
+<li><a href="#/operatori-aritmetici">Operatori Aritmetici</a></li>
+<li><a href="#/condizioni">Condizioni</a>
+<ul>
+<li><a href="#/if">IF</a></li>
+</ul></li>
+<li><a href="#/condizioni-ii">Condizioni II</a>
+<ul>
+<li><a href="#/switch">SWITCH</a></li>
+</ul></li>
+<li><a href="#/operatori-di-confronto">Operatori di confronto</a></li>
+<li><a href="#/operatori-logici">Operatori logici</a></li>
+<li><a href="#/cicli">Cicli</a></li>
+<li><a href="#/while">while</a></li>
+<li><a href="#/dowhile">do...while</a></li>
+<li><a href="#/for">for</a></li>
+<li><a href="#/array">Array</a></li>
+<li><a href="#/array-associativi">Array associativi</a></li>
+<li><a href="#/foreach">Foreach</a></li>
+<li><a href="#/form">Form</a></li>
+<li><a href="#/esercizio">Esercizio</a></li>
+</ul></li>
+</ul>
+</section><section id="sintassi" class="slide level2">
+<h1>Sintassi</h1>
+<ul>
+<li><p>Un file PHP contiene tag HTML e del codice PHP di scripting</p></li>
+<li><p>Esempio di un semplice script PHP che invia il testo &quot;Hello World&quot; al browser:</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php">&lt;html&gt;
+    &lt;body&gt;
+    &lt;<span class="ot">?</span>php <span class="fu">echo</span> <span class="st">&quot;Hello World&quot;</span><span class="ot">;</span> <span class="kw">?&gt;</span>
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+</section><section id="sintassi-1" class="slide level2">
+<h1>Sintassi</h1>
+<ul>
+<li>Un blocco PHP è racchiuso tra <code>&lt;?php</code> e <code>?&gt;</code> e puo' essere inserito ovunque nel documento</li>
+<li>Ogni istruzione termina con un punto e virgola (obbligatoriamente, non come il javascript)</li>
+<li><code>echo</code> e' l'istruzione per mostrare un output (ne esistono anche altre)</li>
+</ul>
+</section><section id="commenti" class="slide level2">
+<h1>Commenti</h1>
+<ul>
+<li>Inserire i commenti nel codice e' fondamentale.<br />
+</li>
+<li>Si usa <code>//</code> per fare commenti su singola linea (come in javascript)</li>
+<li>e <code>/*</code> e <code>*/</code> per commentare un blocco di linee</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="co">// commento di una linea</span>
+
+    <span class="co">/* </span>
+<span class="co">        commento su piu&#39; linee</span>
+<span class="co">    */</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="variabili" class="slide level2">
+<h1>Variabili</h1>
+<p>Come per quasi ogni linguaggio di programmazione, anche in PHP esistono le variabili.</p>
+<ul>
+<li>In PHP la variabili iniziano con un <code>$</code> (dollaro).</li>
+<li>Possono contenere stringhe, numeri, array, oggetti, date, booleani</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">$nome</span> = <span class="st">&quot;Mario&quot;</span><span class="ot">;</span>
+    <span class="kw">$cognome</span> = <span class="st">&quot;Rossi&quot;</span><span class="ot">;</span>
+    <span class="fu">echo</span> <span class="kw">$nome</span><span class="ot">;</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="tipi" class="slide level2">
+<h1>Tipi</h1>
+<p>PHP e' un linguaggio debolmente tipato. Vuol dire che non bisogna dichiarare a priori la tipologia della variabile che si vuole utilizzare (questo non e' vero per tutti i linguaggi).<br />
+Il tipo della variabile viene determinato dal contesto.</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">$pippo</span> = <span class="kw">TRUE</span><span class="ot">;</span> <span class="co">// $pippo e&#39; boolean</span>
+    <span class="kw">$pippo</span> = <span class="st">&quot;0&quot;</span><span class="ot">;</span>  <span class="co">// diventa una stringa</span>
+    <span class="kw">$pippo</span> += <span class="dv">2</span><span class="ot">;</span>   <span class="co">// diventa un integer</span>
+    <span class="kw">$pippo</span> -= <span class="fl">1.1</span><span class="ot">;</span> <span class="co">// diventa un float</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="costanti" class="slide level2">
+<h1>Costanti</h1>
+<p>Oltre alle variabili, in molti linguaggi di programmazione esiste il concetto di costante, simili alle variabili ma il loro valore non puo' essere variato:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="fu">define</span><span class="ot">(</span><span class="st">&#39;PI&#39;</span><span class="ot">,</span> <span class="fl">3.1415</span><span class="ot">);</span>
+    <span class="kw">$raggio</span> = <span class="dv">2</span><span class="ot">;</span>
+    <span class="kw">$area</span> = <span class="ot">(</span><span class="kw">$raggio</span>**<span class="dv">2</span><span class="ot">)</span>*<span class="fu">PI</span><span class="ot">;</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="stringhe" class="slide level2">
+<h1>Stringhe</h1>
+<p>Le stringhe si possono dichiarare principalmente in due modi:</p>
+<ul>
+<li>Single quoted: ovvero tra apici singoli</li>
+<li>Double quoted: tra doppi apici</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">$name</span> = <span class="st">&quot;Mario&quot;</span><span class="ot">;</span>
+    <span class="kw">$surname</span> = <span class="st">&#39;Rossi&#39;</span><span class="ot">;</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="concatenazione" class="slide level2">
+<h1>Concatenazione</h1>
+<p>Per concatenare due o piu' stringhe si usa l'operatore <code>.</code></p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">$name</span> = <span class="st">&quot;Mario&quot;</span><span class="ot">;</span>
+    <span class="kw">$surname</span> = <span class="st">&quot;Rossi&quot;</span><span class="ot">;</span>
+    <span class="kw">$fullname</span> = <span class="kw">$name</span> . <span class="st">&quot; &quot;</span> . <span class="kw">$surname</span><span class="ot">;</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="operatori-aritmetici" class="slide level2">
+<h1>Operatori Aritmetici</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Operazione</th>
+<th style="text-align: center;">Operatore</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Addizione</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Sottrazione</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Divisione</td>
+<td style="text-align: center;">/</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Moltiplicazione</td>
+<td style="text-align: center;">*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Decremento</td>
+<td style="text-align: center;">--</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Incremento</td>
+<td style="text-align: center;">++</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Potenza</td>
+<td style="text-align: center;">** (php &gt; 5.6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Modulo (resto divisione)</td>
+<td style="text-align: center;">%</td>
+</tr>
+</tbody>
+</table>
+</section><section id="condizioni" class="slide level2">
+<h1>Condizioni</h1>
+<h3 id="if">IF</h3>
+<p>Come gia' visto in javascript, con qualche variazione sul tema:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">if</span>  <span class="ot">(</span><span class="kw">$area</span> &gt; <span class="dv">10</span><span class="ot">)</span> {
+        <span class="fu">print</span> <span class="st">&quot;area maggiore di 10&quot;</span><span class="ot">;</span>
+    } <span class="kw">elseif</span> <span class="ot">(</span><span class="kw">$area</span> == <span class="dv">10</span><span class="ot">)</span> {
+        <span class="fu">print</span> <span class="st">&quot;area proprio uguale a 10&quot;</span><span class="ot">;</span>
+    } <span class="kw">else</span> {
+        <span class="fu">print</span> <span class="st">&quot;area minore di 10&quot;</span><span class="ot">;</span>
+    }
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="condizioni-ii" class="slide level2">
+<h1>Condizioni II</h1>
+<h3 id="switch">SWITCH</h3>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">switch</span> <span class="ot">(</span><span class="kw">$x</span><span class="ot">)</span> {
+        <span class="kw">case </span><span class="dv">1</span><span class="ot">:</span>
+            <span class="fu">echo</span> <span class="st">&quot;Number 1&quot;</span><span class="ot">;</span>
+            <span class="kw">break</span><span class="ot">;</span>
+        <span class="kw">case </span><span class="dv">2</span><span class="ot">:</span>
+            <span class="fu">echo</span> <span class="st">&quot;Number 2&quot;</span><span class="ot">;</span>
+            <span class="kw">break</span><span class="ot">;</span>
+        <span class="kw">default:</span>
+            <span class="fu">echo</span> <span class="st">&quot;No number between 1 and 2&quot;</span><span class="ot">;</span>
+    }
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="operatori-di-confronto" class="slide level2">
+<h1>Operatori di confronto</h1>
+<p>Come in javascript:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operatore</th>
+<th style="text-align: center;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">==</td>
+<td style="text-align: center;">Uguale</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">!=</td>
+<td style="text-align: center;">Diverso</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;</td>
+<td style="text-align: center;">Maggiore</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: center;">Minore</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;=</td>
+<td style="text-align: center;">Maggiore o uguale</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;=</td>
+<td style="text-align: center;">Minore o uguale</td>
+</tr>
+</tbody>
+</table>
+</section><section id="operatori-logici" class="slide level2">
+<h1>Operatori logici</h1>
+<p>Come in javascript:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operatore</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&amp;&amp;</td>
+<td style="text-align: left;">and</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">||</td>
+<td style="text-align: left;">or</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">!</td>
+<td style="text-align: left;">not</td>
+</tr>
+</tbody>
+</table>
+</section><section id="cicli" class="slide level2">
+<h1>Cicli</h1>
+<ul>
+<li>while - cicla <strong>finche'</strong> la condizione specificata e' vera</li>
+<li>do...while - cicla almeno una volta e poi finche' la condizione specificata e' vera</li>
+<li>for - cicla per un numero specificato di volte</li>
+<li>foreach - cicla attraverso gli elementi di un array</li>
+</ul>
+</section><section id="while" class="slide level2">
+<h1>while</h1>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">$i</span> = <span class="dv">1</span><span class="ot">;</span>
+    <span class="kw">while</span> <span class="ot">(</span><span class="kw">$i</span> &lt;= <span class="dv">10</span><span class="ot">)</span> {
+        <span class="co">/* Il valore visualizzato è </span>
+<span class="co">        il valore della variabile $i prima </span>
+<span class="co">        del suo incremento */</span>
+        <span class="fu">print</span> <span class="kw">$i</span>++<span class="ot">;</span>
+    }
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="do...while" class="slide level2">
+<h1>do...while</h1>
+<p>Simile al ciclo while ma viene eseguito almeno una volta.</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">$i</span> = <span class="dv">0</span><span class="ot">;</span>
+    <span class="kw">do</span> {
+        <span class="fu">print</span> <span class="kw">$i</span><span class="ot">;</span>
+    } <span class="kw">while</span><span class="ot">(</span><span class="kw">$i</span>&gt;<span class="dv">0</span><span class="ot">);</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="for" class="slide level2">
+<h1>for</h1>
+<p>Come in javascript:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">for</span> <span class="ot">(</span><span class="kw">$i</span> = <span class="dv">1</span><span class="ot">;</span> <span class="kw">$i</span> &lt;= <span class="dv">10</span><span class="ot">;</span> <span class="kw">$i</span>++<span class="ot">)</span> {
+        <span class="fu">print</span> <span class="kw">$i</span><span class="ot">;</span>
+    }
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="array" class="slide level2">
+<h1>Array</h1>
+<p>Gli array sono un tipo di variabile che contiene liste di altre variabili:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+  <span class="kw">$listaGiorni</span> = <span class="fu">array</span><span class="ot">(</span><span class="st">&quot;lun&quot;</span><span class="ot">,</span> <span class="st">&quot;mar&quot;</span><span class="ot">,</span> <span class="st">&quot;mer&quot;</span><span class="ot">,</span> <span class="st">&quot;gio&quot;</span><span class="ot">,</span> <span class="st">&quot;ven&quot;</span><span class="ot">,</span> <span class="st">&quot;sab&quot;</span><span class="ot">,</span> <span class="st">&quot;dom&quot;</span><span class="ot">);</span>
+
+  <span class="co">// stampo il primo giorno della settimana</span>
+  <span class="fu">print</span> <span class="kw">$listaGiorni</span><span class="ot">[</span><span class="dv">0</span><span class="ot">];</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="array-associativi" class="slide level2">
+<h1>Array associativi</h1>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">$utente</span> = <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;nome&quot;</span> =&gt; <span class="st">&quot;Mario&quot;</span><span class="ot">,</span> <span class="st">&quot;cognome&quot;</span> =&gt; <span class="st">&quot;Rossi&quot;</span><span class="ot">);</span>
+    <span class="fu">print</span> <span class="kw">$utente</span><span class="ot">[</span><span class="st">&quot;nome&quot;</span><span class="ot">];</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="foreach" class="slide level2">
+<h1>Foreach</h1>
+<p>Permette di ciclare su tutti gli elementi di un array in due varianti:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+    <span class="kw">foreach</span><span class="ot">(</span><span class="kw">$listaGiorni</span> <span class="kw">as</span> <span class="kw">$giorno</span><span class="ot">)</span> {
+        <span class="fu">print</span> <span class="kw">$giorno</span><span class="ot">;</span>
+    }
+
+    <span class="co">// oppure</span>
+    <span class="kw">foreach</span><span class="ot">(</span><span class="kw">$utente</span> <span class="kw">as</span> <span class="kw">$chiave</span> =&gt; <span class="kw">$valore</span><span class="ot">)</span> {
+        <span class="fu">print</span> <span class="kw">$chiave</span> . <span class="st">&quot;:&quot;</span> . <span class="kw">$valore</span><span class="ot">;</span>
+    }
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="form" class="slide level2">
+<h1>Form</h1>
+<p>Il contenuto degli elementi di un form HTML, dopo il submit sono disponibili al PHP!</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php">&lt;html&gt;
+    &lt;body&gt;
+        &lt;form method=<span class="st">&quot;POST&quot;</span> action=<span class="st">&quot;script.php&quot;</span>&gt;
+            &lt;input type=<span class="st">&quot;text&quot;</span> name=<span class="st">&quot;username&quot;</span>&gt;
+            &lt;input type=<span class="st">&quot;submit&quot;</span> value=<span class="st">&quot;Invia&quot;</span>&gt;
+        &lt;/form&gt;
+        &lt;<span class="ot">?</span>php
+            <span class="kw">$username</span> = <span class="kw">$_REQUEST</span><span class="ot">[</span><span class="st">&#39;username&#39;</span><span class="ot">];</span>
+        <span class="kw">?&gt;</span>
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+</section><section id="esercizio" class="slide level2">
+<h1>Esercizio</h1>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
