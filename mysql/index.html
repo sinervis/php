@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Rocco De Patto">
+  <title>PHP / Mysql   Sinervis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">PHP / Mysql <br> Sinervis</h1>
+  <h2 class="author">Rocco De Patto</h2>
+  <h3 class="date">Febbraio 5, 2018</h3>
+</section>
+
+<section><section id="php-mysql" class="titleslide slide level1"><h1>PHP / Mysql</h1></section><section id="array-associativi" class="slide level2">
+<h1>Array associativi</h1>
+<style>
+  div.sourceCode {
+    font-size: 1.3em;
+  }
+
+  .reveal {
+    font-size: 27px;
+    color: #2d373a;
+  }
+
+  .reveal p {
+    text-align: left;
+  }
+
+  .reveal blockquote {
+    text-align: left;
+    padding-left: 45px;
+    font-size: 1.3em;
+    border-left: 5px solid !important;
+    background: #eee;
+  }
+
+  body {
+    background: white;
+  }
+
+  .container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .container textarea {
+    width: 50%;
+  }
+
+  .container .output {
+    width: 50%;
+  }
+
+  .reveal pre.sourceCode {
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #bbb;
+    border-left: 5px solid #bbb;
+    background: #f5f5f5;
+    padding: 5px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+
+  li > code,
+  p  > code {
+    border-radius: 6px;
+    color: black;
+    background: #f4f4f4;
+    padding: 0px 4px !important;
+  }
+</style>
+<p>Abbiamo gia' visto molte volte gli array, ma gli array associativi?</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+   <span class="co">// dichiarazione di un array associativo</span>
+  <span class="kw">$utente</span> = <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;nome&quot;</span> =&gt; <span class="st">&quot;Mario&quot;</span><span class="ot">,</span> <span class="st">&quot;cognome&quot;</span> =&gt; <span class="st">&quot;Rossi&quot;</span><span class="ot">);</span>
+<span class="kw">?&gt;</span></code></pre></div>
+<p>Negli array associativi, le chiavi sono esplicite e dichiarate.</p>
+</section><section id="array-associativi-1" class="slide level2">
+<h1>Array associativi</h1>
+<p>Possiamo fare riferimento ad un elemento dell'array associativo utilizzando la sua chiave:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+  <span class="co">// dichiaro un array di nome $utente</span>
+  <span class="kw">$utente</span> = <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;nome&quot;</span> =&gt; <span class="st">&quot;Mario&quot;</span><span class="ot">,</span> <span class="st">&quot;cognome&quot;</span> =&gt; <span class="st">&quot;Rossi&quot;</span><span class="ot">);</span>
+
+  <span class="co">// modifico il campo nome</span>
+  <span class="kw">$utente</span><span class="ot">[</span><span class="st">&quot;nome&quot;</span><span class="ot">]</span> = <span class="st">&quot;Antonio&quot;</span><span class="ot">;</span>
+
+  <span class="co">// stampo il valore</span>
+  <span class="fu">echo</span> <span class="kw">$utente</span><span class="ot">[</span><span class="st">&quot;nome&quot;</span><span class="ot">];</span>
+<span class="kw">?&gt;</span></code></pre></div>
+<p>...sia in scrittura, che in lettura.</p>
+</section><section id="array-associativi-2" class="slide level2">
+<h1>Array associativi</h1>
+<p>Possiamo stampare l'intero contenuto di un array attraverso la funzione <code>var_dump</code> (ricordo che per la documentazione delle funzioni e' possibile andare su http://php.net/<code>nomefunzione</code>):</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+  <span class="kw">$utente</span> = <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;nome&quot;</span> =&gt; <span class="st">&quot;Mario&quot;</span><span class="ot">,</span> <span class="st">&quot;cognome&quot;</span> =&gt; <span class="st">&quot;Rossi&quot;</span> <span class="ot">);</span>
+  <span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$utente</span><span class="ot">);</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="array-di-array" class="slide level2">
+<h1>Array di array</h1>
+<p>Molto spesso troverete <code>array di array</code>:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+  <span class="co">// creo un array di due utenti</span>
+  <span class="kw">$utenti</span> = <span class="fu">array</span><span class="ot">(</span> <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;nome&quot;</span> =&gt; <span class="st">&quot;Mario&quot;</span> <span class="ot">),</span> <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;nome&quot;</span> =&gt; <span class="st">&quot;Antonio&quot;</span> <span class="ot">)</span> <span class="ot">);</span>
+
+  <span class="co">// stampo il nome del primo utente</span>
+  <span class="fu">echo</span> <span class="kw">$utenti</span><span class="ot">[</span><span class="dv">0</span><span class="ot">][</span><span class="st">&quot;nome&quot;</span><span class="ot">];</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="altro-esempio" class="slide level2">
+<h1>Altro esempio</h1>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+  <span class="kw">$ricette</span> = <span class="fu">array</span><span class="ot">(</span>
+    <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;titolo&quot;</span> =&gt; <span class="st">&quot;Pane&quot;</span><span class="ot">,</span>
+           <span class="st">&quot;ingredienti&quot;</span> =&gt; <span class="fu">array</span><span class="ot">(</span><span class="st">&quot;acqua&quot;</span> =&gt; <span class="st">&quot;1l&quot;</span><span class="ot">,</span> <span class="st">&quot;farina&quot;</span> =&gt; <span class="st">&quot;2kg&quot;</span> <span class="ot">)</span> <span class="ot">),</span>
+    <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;titolo&quot;</span> =&gt; <span class="st">&quot;Besciamella&quot;</span><span class="ot">,</span>
+           <span class="st">&quot;ingredienti&quot;</span> =&gt; <span class="fu">array</span><span class="ot">(</span> <span class="st">&quot;latte&quot;</span> =&gt; <span class="st">&quot;1l&quot;</span><span class="ot">,</span> <span class="st">&quot;burro&quot;</span> =&gt; <span class="st">&quot;200g&quot;</span><span class="ot">,</span> <span class="st">&quot;noce moscata&quot;</span> =&gt; <span class="st">&quot;qb&quot;</span> <span class="ot">))</span>
+  <span class="ot">);</span>
+
+  <span class="co">// per sapere quanto burro serve per fare la besciamella:</span>
+  <span class="fu">echo</span> <span class="kw">$ricette</span><span class="ot">[</span><span class="dv">1</span><span class="ot">][</span><span class="st">&quot;ingredienti&quot;</span><span class="ot">][</span><span class="st">&quot;burro&quot;</span><span class="ot">];</span>
+
+  <span class="co">// per fare la lista degli ingredienti della besciamella:</span>
+  <span class="kw">$ingredienti</span> = <span class="kw">$ricette</span><span class="ot">[</span><span class="dv">1</span><span class="ot">][</span><span class="st">&quot;ingredienti&quot;</span><span class="ot">];</span>
+  <span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$ingredienti</span><span class="ot">);</span>
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="funzioni-sugli-array" class="slide level2">
+<h1>Funzioni sugli array</h1>
+<p>Gli array hanno veramente <a href="http://php.net/manual/it/ref.array.php">tante funzioni associate</a>, guarderemo le piu' importanti:</p>
+<ul>
+<li>Trovare le chiavi di un array associativo con <a href="http://php.net/manual/it/function.array-keys.php">array_keys</a> (esercizio, nell'esempio di prima stampare tutti gli ingredienti e solo quelli del pane in una lista html)</li>
+<li>Contare quanti elementi sono presenti in un array con <a href="http://php.net/manual/it/function.count.php">count</a> (quanti ingredienti servono per fare la besciamella?)</li>
+<li>Controllare se una chiave esiste in un array con <a href="http://php.net/manual/it/function.array-key-exists.php">array_key_exists</a> (serve l'acqua per fare la besciamella?)</li>
+<li>Controlla se un valore esiste in un array con <a href="http://php.net/manual/it/function.in-array.php">in_array</a> (abbiamo la ricetta del Pane tra le nostre ricette?)</li>
+<li>Ordina un array <a href="http://php.net/manual/it/function.ksort.php">ksort</a> (mostra la lista degli ingredienti della Besciamella in ordine alfabetico)</li>
+</ul>
+</section><section id="cicli-su-array-associativi" class="slide level2">
+<h1>Cicli su array associativi</h1>
+<p>In php esiste una struttura di controllo apposita per ciclare gli array associativi, il <strong>foreach</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+  <span class="kw">$ingredienti</span> = <span class="fu">array</span><span class="ot">(</span>
+    <span class="st">&quot;latte&quot;</span> =&gt; <span class="st">&quot;1l&quot;</span><span class="ot">,</span>
+    <span class="st">&quot;burro&quot;</span> =&gt; <span class="st">&quot;200g&quot;</span><span class="ot">,</span> 
+    <span class="st">&quot;noce moscata&quot;</span> =&gt; <span class="st">&quot;qb&quot;</span> <span class="ot">);</span>
+
+  <span class="kw">foreach</span> <span class="ot">(</span><span class="kw">$ingredienti</span> <span class="kw">as</span> <span class="kw">$ingrediente</span> =&gt; <span class="kw">$quantita</span><span class="ot">)</span> {
+    <span class="fu">echo</span> <span class="st">&quot;&lt;td&gt;</span><span class="kw">$ingrediente</span><span class="st">&lt;/td&gt;&lt;td&gt;</span><span class="kw">$quantita</span><span class="st">&lt;/td&gt;&quot;</span><span class="ot">;</span>
+  }
+<span class="kw">?&gt;</span></code></pre></div>
+</section><section id="esercizio" class="slide level2">
+<h1>Esercizio</h1>
+<p>Provare a strutturare un array associativo di libri di narrativa contenenti le informazioni sull'autore, il titolo e l'anno di pubblicazione.</p>
+</section><section id="intro-mysqlrdbms" class="slide level2">
+<h1>Intro Mysql/RDBMS</h1>
+<p>Dove salvare le infomazioni che i nostri siti devono gestire? Le ricette, i post, gli utenti, i libri, etc...</p>
+<p>Abbiamo bisogno di un qualcosa che ci permetta di salvare in maniera permanente queste informazioni e che ci permetta di aggiornare, recuperare, filtrare, ordinare queste informazioni a piacimento.</p>
+<p>Questo qualcosa e' un <strong>database</strong>.</p>
+</section><section id="database-relazionali" class="slide level2">
+<h1>Database Relazionali</h1>
+<p>Un database relazionale e' costituito da tabelle, ognuna delle quali e' formata da righe, identificate da un campo univoco chiamato chiave.</p>
+<p>Le tabelle che compongono un database sono in relazione tra loro:</p>
+<figure>
+<img src="tabelle.jpg" alt="tabelle" /><figcaption>tabelle</figcaption>
+</figure>
+</section><section id="relazioni" class="slide level2">
+<h1>Relazioni</h1>
+<p>Esisono piu' tipi di relazioni:</p>
+<ul>
+<li>uno a molti (ad un autore possono corrispondere piu' libri)</li>
+<li>uno a uno (es. auto aziendali associate ai dipendenti)</li>
+<li>molti a molti (ad un articolo possono essere associati piu' tag e viceversa)</li>
+</ul>
+<figure>
+<img src="relazione.jpg" alt="relazione" /><figcaption>relazione</figcaption>
+</figure>
+<p>Il campo delle tabelle in relazione viene indicato come <code>chiave esterna</code> e <code>chiave primaria</code>.</p>
+</section><section id="operazioni-su-db" class="slide level2">
+<h1>Operazioni su DB</h1>
+<p>Le operazioni che possiamo fare su DB sono sostanzialmente quattro:</p>
+<ul>
+<li>Inserimento</li>
+<li>Lettura</li>
+<li>Modifica</li>
+<li>Cancellazione</li>
+</ul>
+</section><section id="creazione-db" class="slide level2">
+<h1>Creazione DB</h1>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">DATABASE</span> rossoPomodoro;
+<span class="kw">USE</span> rossoPomodoro;</code></pre></div>
+</section><section id="creazione-tabelle" class="slide level2">
+<h1>Creazione tabelle</h1>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> Ricette {
+  <span class="kw">id</span> <span class="dt">INT</span> <span class="kw">NOT</span> <span class="kw">NULL</span> AUTO_INCREMENT,
+  titolo <span class="dt">VARCHAR</span>(<span class="dv">45</span>) <span class="kw">NULL</span>,
+  descrizione TEXT
+};</code></pre></div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
